@@ -1,2 +1,699 @@
-# website-interface
-A website interface generated with DeepSite AI
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-pattern {
+            background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .before-after {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .before-after img {
+            width: 100%;
+            display: block;
+        }
+        
+        .before-after .before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: white;
+            z-index: 10;
+            cursor: ew-resize;
+        }
+        
+        .slider:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .furniture-card:hover .furniture-overlay {
+            opacity: 1;
+        }
+        
+        .furniture-overlay {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center">
+                    <i class="fas fa-couch text-white text-xl"></i>
+                </div>
+                <span class="heading-font text-2xl font-bold text-gray-800">Niambi Revive</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-amber-700 transition">Home</a>
+                <a href="#about" class="text-gray-800 hover:text-amber-700 transition">About</a>
+                <a href="#services" class="text-gray-800 hover:text-amber-700 transition">Services</a>
+                <a href="#gallery" class="text-gray-800 hover:text-amber-700 transition">Gallery</a>
+                <a href="#contact" class="text-gray-800 hover:text-amber-700 transition">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-800 hover:text-amber-700 transition">Home</a>
+                <a href="#about" class="text-gray-800 hover:text-amber-700 transition">About</a>
+                <a href="#services" class="text-gray-800 hover:text-amber-700 transition">Services</a>
+                <a href="#gallery" class="text-gray-800 hover:text-amber-700 transition">Gallery</a>
+                <a href="#contact" class="text-gray-800 hover:text-amber-700 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern bg-amber-700 bg-opacity-70 py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="heading-font text-4xl md:text-6xl font-bold text-white mb-6">Breathing New Life Into Classic Furniture</h1>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Preserving history while embracing modern aesthetics in North Charleston, South Carolina</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-amber-700 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Get a Quote</a>
+                <a href="#gallery" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-amber-700 transition duration-300">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Niambi at work" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-6">Meet Niambi</h2>
+                    <p class="text-gray-600 mb-4">Hi, I'm Niambi - the heart and hands behind Niambi Revive and Redesign. As a North Charleston native with a passion for preserving history through furniture, I've dedicated myself to the art of furniture restoration and redesign.</p>
+                    <p class="text-gray-600 mb-6">My approach blends respect for traditional craftsmanship with contemporary design sensibilities. Each piece that comes through my workshop receives individual attention and care, ensuring its unique character shines through while meeting modern functional needs.</p>
+                    
+                    <div class="bg-amber-50 p-6 rounded-lg border-l-4 border-amber-700">
+                        <p class="text-gray-700 italic">"I believe every piece of furniture has a story to tell. My job is to help it tell that story in a way that fits beautifully into modern homes while honoring its original craftsmanship."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Specialized furniture restoration services that honor the past while embracing the present</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-brush text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Complete Refinishing</h3>
+                    <p class="text-gray-600">Stripping away years of wear to reveal and enhance the natural beauty of your furniture with modern, durable finishes.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-couch text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Upholstery Renewal</h3>
+                    <p class="text-gray-600">Updating fabrics and padding while maintaining structural integrity for comfort that lasts another generation.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-puzzle-piece text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Structural Restoration</h3>
+                    <p class="text-gray-600">Repairing joints, replacing missing elements, and reinforcing structures using traditional joinery techniques.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Custom Color Matching</h3>
+                    <p class="text-gray-600">Creating bespoke finishes that complement your existing decor while respecting the piece's original character.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-magic text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Design Transformation</h3>
+                    <p class="text-gray-600">Reimagining outdated pieces with contemporary design elements while preserving their soul and craftsmanship.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-gray-800 mb-3">Consultation & Appraisal</h3>
+                    <p class="text-gray-600">Expert advice on restoration options, historical significance, and investment potential of your furniture pieces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Transformations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Witness the remarkable before-and-after journeys of furniture pieces we've revived</p>
+            </div>
+            
+            <!-- Before/After Slider 1 -->
+            <div class="mb-16">
+                <h3 class="heading-font text-xl font-bold text-gray-800 mb-6 text-center">Mid-Century Dresser Revival</h3>
+                <div class="before-after rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3b91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="After restoration">
+                    <div class="before">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3b91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Before restoration">
+                    </div>
+                    <div class="slider"></div>
+                </div>
+                <p class="text-center text-gray-600 mt-4 max-w-2xl mx-auto">This 1960s dresser was stripped of its damaged veneer, repaired structurally, and refinished with a custom walnut stain and matte protective coating.</p>
+            </div>
+            
+            <!-- Image Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1555041463-e1fea8f45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored chair" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">French Provincial Chair</h4>
+                            <p class="text-white">Original 1940s frame with new upholstery in performance fabric</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored table" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">Farmhouse Dining Table</h4>
+                            <p class="text-white">Early 1900s pine table with epoxy-filled cracks and milk paint finish</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1583845112208-9737fe3241eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored cabinet" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">Victorian Display Cabinet</h4>
+                            <p class="text-white">1880s cabinet with restored glass and updated interior lighting</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored desk" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">Art Deco Writing Desk</h4>
+                            <p class="text-white">1930s desk with restored veneer and custom brass hardware</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored bench" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">Church Pew Conversion</h4>
+                            <p class="text-white">Early 20th century pew transformed into an entryway bench</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="furniture-card relative rounded-lg overflow-hidden shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1555041463-e1fea8f45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restored armoire" class="w-full h-full object-cover">
+                    <div class="furniture-overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="heading-font text-white text-xl font-bold mb-2">French Country Armoire</h4>
+                            <p class="text-white">Converted to a modern entertainment center with hidden wiring</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from homeowners who've entrusted their cherished pieces to Niambi's care</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Niambi transformed my grandmother's battered rocking chair into a stunning focal point for my living room. She preserved all the character while making it comfortable and durable for daily use."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah J.</h4>
+                            <p class="text-gray-500 text-sm">Charleston, SC</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The dining table Niambi restored for us is now the centerpiece of family gatherings. She matched the original stain perfectly while reinforcing the structure. Worth every penny!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael T.</h4>
+                            <p class="text-gray-500 text-sm">Mount Pleasant, SC</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Niambi's eye for design is incredible. She took a dated 70s credenza and made it look like a high-end modern piece while keeping its mid-century soul. Simply magical work."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Lisa M.</h4>
+                            <p class="text-gray-500 text-sm">North Charleston, SC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-6">Let's Revive Your Piece</h2>
+                    <p class="text-gray-600 mb-8">Ready to give your furniture a new lease on life? Contact Niambi to discuss your restoration project. Based in North Charleston, South Carolina, I welcome both local clients and those willing to ship their pieces for restoration.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Workshop Location</h4>
+                                <p class="text-gray-600">North Charleston, South Carolina</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Email Us</h4>
+                                <p class="text-gray-600">hello@niambirevive.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Call Us</h4>
+                                <p class="text-gray-600">(843) 555-0192</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">Follow Our Work</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-amber-100 hover:text-amber-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-amber-100 hover:text-amber-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-amber-100 hover:text-amber-700 transition">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="heading-font text-xl font-bold text-gray-800 mb-6">Get a Free Consultation</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="piece" class="block text-gray-700 font-medium mb-2">Tell Us About Your Piece</label>
+                                <textarea id="piece" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-amber-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-800 transition duration-300">Request Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600">Answers to common questions about our furniture restoration process</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left">
+                        <h3 class="font-bold text-gray-800">How long does a typical restoration take?</h3>
+                        <i class="fas fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden">
+                        <p class="text-gray-600">The timeline varies depending on the piece's condition and the work required. Simple refinishing projects may take 2-3 weeks, while complex restorations with structural repairs or custom upholstery can take 6-8 weeks. I'll provide a time estimate after evaluating your piece.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left">
+                        <h3 class="font-bold text-gray-800">Do you work with all types of furniture?</h3>
+                        <i class="fas fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden">
+                        <p class="text-gray-600">I specialize in wood furniture from the 19th century through mid-century modern pieces. This includes tables, chairs, dressers, cabinets, and more. I don't typically work with pressed wood or particle board furniture as they don't respond well to restoration techniques.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left">
+                        <h3 class="font-bold text-gray-800">Can you match my existing furniture finish?</h3>
+                        <i class="fas fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden">
+                        <p class="text-gray-600">Absolutely! Color matching is one of my specialties. Bring in a sample or photo of the finish you'd like to match, and I'll create a custom blend to coordinate perfectly with your existing furniture.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left">
+                        <h3 class="font-bold text-gray-800">How do you determine pricing?</h3>
+                        <i class="fas fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden">
+                        <p class="text-gray-600">Pricing is based on the time and materials required for your specific project. Factors include the piece's size, condition, type of finish or upholstery needed, and any structural repairs. I offer free initial consultations to assess your piece and provide an estimate.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left">
+                        <h3 class="font-bold text-gray-800">Do you offer pickup and delivery?</h3>
+                        <i class="fas fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden">
+                        <p class="text-gray-600">For clients in the greater Charleston area, I can arrange pickup and delivery for an additional fee. For those outside the area, I'm happy to provide recommendations for shipping services that specialize in furniture transport.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center">
+                            <i class="fas fa-couch text-white text-xl"></i>
+                        </div>
+                        <span class="heading-font text-2xl font-bold text-white">Niambi Revive</span>
+                    </a>
+                    <p class="text-gray-300 mb-4">Preserving history through furniture restoration in North Charleston, South Carolina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-amber-700 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-amber-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-amber-700 transition">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="heading-font text-lg font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-amber-400 transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-amber-400 transition">About</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-amber-400 transition">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-amber-400 transition">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-amber-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="heading-font text-lg font-bold text-white mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-400"></i>
+                            <span>North Charleston, SC</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-amber-400"></i>
+                            <span>hello@niambirevive.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-amber-400"></i>
+                            <span>(843) 555-0192</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Niambi Revive and Redesign. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content
+                content.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Before/After slider
+        const beforeAfterContainers = document.querySelectorAll('.before-after');
+        
+        beforeAfterContainers.forEach(container => {
+            const before = container.querySelector('.before');
+            const slider = container.querySelector('.slider');
+            let isDragging = false;
+            
+            slider.addEventListener('mousedown', () => {
+                isDragging = true;
+            });
+            
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+            
+            container.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                const x = e.clientX - containerRect.left;
+                const percentage = (x / containerRect.width) * 100;
+                
+                if (percentage >= 0 && percentage <= 100) {
+                    before.style.width = `${percentage}%`;
+                    slider.style.left = `${percentage}%`;
+                }
+            });
+            
+            // Touch support
+            slider.addEventListener('touchstart', () => {
+                isDragging = true;
+            });
+            
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+            
+            container.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                const touch = e.touches[0];
+                const x = touch.clientX - containerRect.left;
+                const percentage = (x / containerRect.width) * 100;
+                
+                if (percentage >= 0 && percentage <= 100) {
+                    before.style.width = `${percentage}%`;
+                    slider.style.left = `${percentage}%`;
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
